@@ -81,14 +81,18 @@ plotLN <- function (edr10_all)
 
 
  gLN <-  ggplot(edr10_all, aes(x=10^s_ij, y=p_i_w, colour=type))+
-          geom_point() +
+          geom_point(size=3, aes(colour=type, shape=type))+
           scale_x_log10()+
           facet_wrap(~grp, scale="free")+
           geom_line (data=pred_all_df, size=1)+
           xlab("EDR10") +
           ylab ( "Cumulative weighted probability")+
           ggtitle("Log Normal")+
-          theme(axis.text.x = element_text(angle=30, hjust=1, vjust=1))
+          theme(axis.text.x = element_text(angle=30, hjust=1, vjust=1))+
+          theme_bw()+
+          scale_colour_manual(values=c("grey60", "grey20"))+
+          theme(strip.text = element_text(face="bold", size=rel(1.5)))
+
 
 
 

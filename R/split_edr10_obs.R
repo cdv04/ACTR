@@ -21,10 +21,10 @@ split_edr10_obs<-function (dat, var_grp) {
 
   tmp_Chro <- filter(dat, DoseType =="Chronic")
 
-  dat_Chro <- data.frame(tmp_Chro[,ind_grp], tmp_Chro$SpeciesComp, tmp_Chro$ID,
+  dat_Chro <- data.frame(tmp_Chro[,ind_grp],tmp_Chro$Ecosystem, tmp_Chro$SpeciesComp, tmp_Chro$ID,
                          tmp_Chro$sub.id, tmp_Chro$Umbrella, tmp_Chro$ED)
 
-  names(dat_Chro) <- c(names(dat)[ind_grp], "SpeciesComp","ID", "sub.id",
+  names(dat_Chro) <- c(names(dat)[ind_grp],"Ecosystem" ,"SpeciesComp","ID", "sub.id",
                        "Umbrella", "EDR10_obs")
 
   return(dat_Chro)

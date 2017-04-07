@@ -12,13 +12,19 @@ plotECDF <- function (plot_position.df) {
 
   pp <- plot_position.df
   gEcdf <- ggplot(pp, aes(x=10^s_ij, y=p_i_w, colour=type)) +
-            geom_point(size=2, aes(colour=type))+
+            geom_point(size=3, aes(colour=type, shape=type))+
             geom_step () +
-            facet_wrap(~ Class,nr=2, scale="free") +
+            facet_wrap(~ Class, scale="free") +
             scale_x_log10() +
             xlab("EDR10") +
             ylab ( "Cumulative weighted probability")+
-            ggtitle("Empirical")
-            theme(axis.text.x = element_text(angle=30, hjust=1, vjust=1))
+            ggtitle("Empirical")+
+            theme(axis.text.x = element_text(angle=30, hjust=1, vjust=1))+
+            theme_bw()+
+            scale_colour_manual(values=c("grey60", "grey20"))+
+            theme(strip.text = element_text(face="bold", size=rel(1.5)))
+
+
+
   return(gEcdf)
 }

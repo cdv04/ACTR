@@ -9,6 +9,7 @@
 
 
 # dat <- edr10_obs
+# dat <- edr10_act
 
 plotting_position<- function(Edr10)
 {
@@ -94,7 +95,7 @@ plotting_position<- function(Edr10)
 
   ind_edr10 <- grep("EDR10",names(dat_df))
 
-  nameType <- strsplit(names(dat)[6],"_")[[1]][2]
+  nameType <- strsplit(names(dat)[ind_edr10],"_")[[1]][2]
 
   names(dat_df)[ind_edr10] <- c("EDR10")
   #names(dat_df)[1] <- names(Ed)

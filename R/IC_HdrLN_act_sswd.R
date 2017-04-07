@@ -10,19 +10,19 @@
 #' @param B The desired number of bootstrap sample from which confidence intervals are build
 #' @return a data frame with estimated HDR5_act and 95% confidence interval (not in log scale)
 #' @examples
-#' hdr5_act <- HDR5_act ( ciprKP, BM_Mu, BM_Sigma,PAC_boot )
+#' hdr5_act <- HDR5_act_sswd ( ciprKP, BM_Mu, BM_Sigma,PAC_boot )
 #' @export
 
 
 ## besoin
-# dat <- ciprKP
+# dat <- actr17KP
 # BM_Mu <- bm_mu
 # BM_Sigma <- bm_sigma
 # PAC_boot <- PAC_bt
 # varGrp <- c("Class")
 # dat.bt <- boot_data(dat,Class,100)
 
-IC_HdrLN_act <- function (dat,varGrp,BM_Mu, BM_Sigma,th,B)
+IC_HdrLN_act_sswd <- function (dat,varGrp,BM_Mu, BM_Sigma,th,B)
 {
 
 
@@ -31,10 +31,11 @@ IC_HdrLN_act <- function (dat,varGrp,BM_Mu, BM_Sigma,th,B)
   ## Pre process
   ##
 
-  #dat<- ciprKP
+  #dat<- actr17KP
   #PAC_boot <- PAC_bt
 
   MyVarGrp <- substitute(varGrp)
+  ind_grp <- which(colnames(dat)==MyVarGrp)
 
 
 
@@ -82,7 +83,7 @@ IC_HdrLN_act <- function (dat,varGrp,BM_Mu, BM_Sigma,th,B)
 
 
   ##############################################################################
-  ##  generating bootstrap sample of ED50 and calculating WMuA_lg et wSigmaA_lg
+  ##  generating bootstrap sample of ED50 and calculating MuA_lg* et wigmaA_lg*
   ##
   ##############################################################################
 
@@ -93,16 +94,58 @@ IC_HdrLN_act <- function (dat,varGrp,BM_Mu, BM_Sigma,th,B)
 
   # on fait des échantillons bootstrap des données ciprKP (on ne gardera que les
   #ED50)
-  dat.bt <- do.call (boot_data,list(dat,MyVarGrp,B ))
+  #dat.bt <- do.call (boot_data,list(dat,MyVarGrp,B ))
+  dat.bt <- vector("list",B)
+  SampleBootClass_ED50<-vector("list",B)
+  SampleBootClass_EDR10<-vector("list",B)
+
+  dat.edr10 <- dat %>%
+    filter(DoseType=="Chronic")
+
+  dat.ed50 <- dat %>%
+    filter(DoseType=="Acute")
+
+  dat.edr10_ls <- split(dat.edr10,droplevels(dat.edr10[,ind_grp]) )
+  dat.ed50_ls <- split(dat.ed50,droplevels(dat.ed50[,ind_grp]) )
+
+  for (i in 1 : B)
+  {
+
+
+    SampleBootClassEDR10 <- lapply(dat.edr10_ls,function(x){
+
+      sample_n(x,size=nrow(x),replace=TRUE, weight=x$w_ij)
+    })
+
+    SampleBootClassED50 <- lapply(dat.ed50_ls,function(x){
+
+      sample_n(x,size=nrow(x),replace=TRUE, weight=x$w_ij)
+    })
 
 
 
-  # on estime les paramètres des ED50 (on estime aussi ceux des EDR10 mais on
+    SampleBootAllEDR10_df <- data.frame(Reduce(rbind, SampleBootClassEDR10))
+    SampleBootAllED50_df <- data.frame(Reduce(rbind, SampleBootClassED50))
+    SampleBootAll_df <- rbind(SampleBootAllEDR10_df,SampleBootAllED50_df )
+    # ces indices sont utilisées pour créer l'échantillon
+    dat.bt[[i]]<-SampleBootAll_df
+
+
+
+  }
+
+
+
+
+
+
+
+  # on estime les paramètres non pondéré des ED50 (on estime aussi ceux des EDR10 mais on
   #ne s en servira pas)
   PAC_bt <- vector("list",B)
   for (i in 1 : B) {
 
-    PAC_bt[[i]] <- do.call(est_PAC, list(dat.bt[[i]],MyVarGrp))
+    PAC_bt[[i]] <- do.call(est_PAC_nw, list(dat.bt[[i]],MyVarGrp))
   }
 
 
@@ -219,7 +262,6 @@ IC_HdrLN_act <- function (dat,varGrp,BM_Mu, BM_Sigma,th,B)
       wSigmaA_lg <- PAC_eq_bt[[b]][i,]$wSigmaA_lg
       MuC_eq <- PAC_eq_bt[[b]][i,]$MuC_eq
       SigmaC_eq <- PAC_eq_bt[[b]][i,]$SigmaC_eq
-
       tmp.ls[[i]]$EDR10_act <- 10^(SigmaC_eq * ((log10(tmp.ls[[i]]$ED) - wMuA_lg )/  wSigmaA_lg) + MuC_eq)
 
     }

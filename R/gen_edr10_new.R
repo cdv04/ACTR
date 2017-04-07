@@ -15,7 +15,7 @@
 #' PAC_obs <- est_PAC(ciprKP,Class)
 #' PC_pred <- predict_PC(PAC_obs,bm_mu, bm_sigma)
 #' PAC_gen <- cbind(PA_obs,PC_pred[,-1] )
-#' edr10_act <- gen_edr10(PAC_gen,ciprKP.ac)
+#' edr10_act <- gen_edr10_new(PAC_gen,ciprKP.ac)
 
 #' @export
 
@@ -23,7 +23,7 @@
 # acute_df <-  cipr_kp_ac
 # paraACreg<- para_ACReg_lg
 # acute_df <- ciprKP.ac
-gen_edr10 <- function (PAC_gen,acute_df) {
+gen_edr10_new <- function (PAC_gen,acute_df) {
 
   library(dplyr)
 
@@ -59,7 +59,9 @@ gen_edr10 <- function (PAC_gen,acute_df) {
 
   }
 
-  toMatch <- c("EDR10_act", "SpeciesComp", "ID", "sub.id", "Umbrella", "Ecosystem")
+  toMatch <- c("EDR10_act","Ecosystem", "Kingdom","Phylum","Order","Family",
+               "Genus", "Species","SpeciesComp","Sp_common","Sp_latin", "DoseType",
+               "ID", "sub.id","Radiation.type","Umbrella",  "Effect.description", "Model" )
   ind_tmp <- unique (grep(paste(toMatch,collapse="|"),names(acute_list[[1]]), value=FALSE))
 
   ind_kpt <- c(ind_grp,ind_tmp)
@@ -70,5 +72,6 @@ gen_edr10 <- function (PAC_gen,acute_df) {
   edr10_act_df <- data.frame (Reduce (rbind, edr10_act_list ))
   return(edr10_act_df)
 }
+
 
 

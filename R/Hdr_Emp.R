@@ -6,6 +6,9 @@
 #' @return a data frame containing the hdr th calculated from empirical distribution
 #' @export
 
+
+
+#edr10.df <-edr10_obs
 Hdr_Emp <- function (edr10.df,th)
 {
     library(dplyr)
