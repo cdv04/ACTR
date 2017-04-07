@@ -1,0 +1,188 @@
+[1] *********************************************************************
+[1] Please check there is no mutation effect
+[1] *********************************************************************
+[1] "Ecological"          "Morbidity"           "morbidity "          "Morbidity / repro ?"
+[5] "morbidity ??"        "Mortality"           "reproduction"        "Reproduction"       
+
+
+[1] *********************************************************************
+[1] Please check there are only ACUTE and CHRONIC dose types in the
+[1] dataset
+[1] *********************************************************************
+[1] "Acute"   "Chronic"
+
+
+[1] *********************************************************************
+[1] Please check names of Class are always written with the same
+[1] orthography, it's needed for the ACT method
+[1] *********************************************************************
+ [1] "Actinopterygii"      "Amphibia"            "Arachnida"           "Aves"               
+ [5] "Bivalvia"            "Branchiopoda"        "Chlorophyceae"       "Clitellata"         
+ [9] "Conjugatophyceae"    "Cyanophiceae"        "Demospongiae"        "Elasmobranchii"     
+[13] "Eudicots"            "Euglenoidea"         "Gammaproteobacteria" "Gastropoda"         
+[17] "Insecta"             "Liliopsida"          "Magnoliopsida"       "Malacostraca"       
+[21] "Mammalia"            "Maxillopoda"         "Monocots"            "Pinopsida"          
+[25] "Polychaeta"          "Reptilia"            "Ulvophyceae"        
+
+
+[1] *********************************************************************
+[1] Please check names of Species by Class are always written with the 
+[1] same orthography, it's needed for the ACT method
+[1] *********************************************************************
+
+
+[1] ****************************** ACUTE *****************************
+$Actinopterygii
+ [1] "Carassius auratus"        "Cyprinus carpio"          "Danio rerio"             
+ [4] "Gambusia affinis"         "Lagodon rhomboides"       "Misgurnus fossilis"      
+ [7] "Oncorhynchus mykiss"      "Oncorhynchus tshawytscha" "Oryzias latipes"         
+[10] "Pleuronectes platessa"    "Tinca tinca"             
+
+$Amphibia
+[1] "Anaxyrus fowleri"    "Desmognathus fuscus" "Lithobates pipiens"  "Necturus maculosus" 
+[5] "Taricha granulosa"  
+
+$Arachnida
+[1] "Caloglyphus mycophagus" "Fuscuropoda marginata" 
+
+$Aves
+ [1] "Anas platyrhynchos"       "Anser anser"              "Colinus virginanus"      
+ [4] "Coturnix coturnix"        "Gallus gallus domesticus" "Junco hyemalis"          
+ [7] "Larus ridibundus"         "Melospiza melodia"        "Passer domesticus"       
+[10] "Quelea quelea"            "Sturnus vulgaris"        
+
+$Bivalvia
+[1] "Crassostrea gigas"
+
+$Branchiopoda
+[1] "Artemia salina"
+
+$Chlorophyceae
+[1] "Platymonas viridis"      "Scenedesmus quadricauda" "Stigeoclonium pascheri" 
+
+$Clitellata
+[1] "Eisenia fetida"
+
+$Conjugatophyceae
+[1] "Cosmarium botrytis"
+
+$Demospongiae
+[1] "Freshwater sponge"
+
+$Elasmobranchii
+[1] "Raja eglanteria"
+
+$Eudicots
+[1] "Beta vulgaris"      "Gossypium hirsutum" "Papaver sp"        
+
+$Euglenoidea
+[1] "Euglena sp"
+
+$Gammaproteobacteria
+[1] "Azotobacter agilis"      "Azotobacter chroococcum"
+
+$Gastropoda
+[1] "Biomphalaria glabrata" "Crepidula fornicata"   "Haitia acuta"         
+[4] "Physa heterostropha"   "Radix japonica"       
+
+$Insecta
+ [1] "Acheta domesticus"         "Attagenus piceus"          "Blatta orientalis"        
+ [4] "Blattella germanica"       "Bracon hebetor"            "Crematogaster lineolata"  
+ [7] "Dermestes ater"            "Drosophila simulans"       "Habrobracon juglandis"    
+[10] "Harpalus pennsylvanicus "  "Lasioderma serricorne"     "Melanoplus sanguinipes"   
+[13] "Oncopeltus fasciatus"      "Oryzaephilus surinamensis" "Polypedilum vanderplanki" 
+[16] "Rhyzopertha dominica"      "Sceliphron caementarium "  "Sinella curviseta"        
+[19] "Sitophilus oryzae"         "Tenebrio molitor "         "Thermobia domestica "     
+[22] "Tribolium confusum"        "Vespula vulgaris"         
+
+$Liliopsida
+[1] "Allium cepa"            "Holcus lanatus"         "Hordeum brevisubulatum"
+[4] "Hordeum vulgare"        "Oryza sativa"          
+
+$Magnoliopsida
+ [1] "Betula pendula"           "Cucumis sativus"          "Glaux maritima"          
+ [4] "Pisum sativum"            "Plantago cornuti"         "Prunus cerasus"          
+ [7] "Rhaponticum carthamoides" "solanum tuberosum"        "Trifolium repens"        
+[10] "Vicia faba"               "Vicia tenuifolia"        
+
+$Malacostraca
+[1] "Armadillidium vulgare" "Callinectes sapidus"   "Corophium volutator"  
+[4] "Gammarus duebeni"      "Palaemonetes pugio"    "Uca pugnax"           
+
+$Mammalia
+[1] "Cavia porcellus"   "Mus musculus"      "Rabbit"            "Rattus norvegicus"
+
+$Maxillopoda
+[1] "Diaptomus clavipes"
+
+$Monocots
+[1] "Agropyron repens"  "Festuca pratensis" "Lolium perenne"    "Poa pratense"     
+[5] "Tradescantia sp"   "Triticum aestivum"
+
+$Pinopsida
+[1] "Picea glauca"     "Pinus elliottii"  "Pinus strobus"    "Pinus sylvestris"
+[5] "Pinus taeda"     
+
+$Polychaeta
+[1] "Neanthes arenaceodentata"
+
+$Reptilia
+[1] "Terrapene carolina carolina" "Uta stansburiana stejnegeri"
+
+$Ulvophyceae
+[1] "Acetabularia mediterranea"
+
+
+
+[1] ******************************** CHRONIC ***************************
+$Actinopterygii
+[1] "Oncorhynchus tshawytscha" "Oryzias latipes"          "Pleuronectes platessa"   
+[4] "Poecilia reticulata"     
+
+$Aves
+[1] "Gallus gallus domesticus" "Larus ridibundus"        
+
+$Bivalvia
+[1] "Mercenaria mercenaria"
+
+$Branchiopoda
+[1] "Daphnia magna" "Daphnia pulex"
+
+$Clitellata
+[1] "Eisenia fetida"
+
+$Cyanophiceae
+[1] "Synechococcus lividus"
+
+$Eudicots
+[1] "Fagopyrum esculentum"
+
+$Gastropoda
+[1] "Physa heterostropha"
+
+$Insecta
+[1] "Dahlbominus  sp"
+
+$Liliopsida
+[1] "Hordeum vulgare"
+
+$Magnoliopsida
+[1] "Betula papyrifera" "Pisum Sp"          "Solanum tuberosum" "Vitis vinifera"   
+
+$Malacostraca
+[1] "Callinectes sapidus" "Porcellio scaber"   
+
+$Mammalia
+[1] "Canis lupus"           "Capra hircus aegagrus" "Mus musculus"         
+[4] "Rattus norvegicus"     "Sus scrofa"           
+
+$Monocots
+[1] "Triticum monococcum" "Triticum Sinskjae"  
+
+$Pinopsida
+[1] "Abies balsamea" "Picea mariana"  "Pinus rigida"  
+
+$Polychaeta
+[1] "Neanthes arenaceodentata" "Ophryotrocha diadema"    
+
+
